@@ -1,0 +1,69 @@
+*{box-sizing: border-box;
+font-family: 'Roboto Condensed', sans-serif;}
+
+body{
+background-position: center;
+background: url(cielo.jpg);
+background-size: cover;
+background-repeat: no-repeat;
+}
+
+
+main{
+width: 60%;
+margin:0 auto;
+padding:20px;
+text-align:center;
+background-color:rgba(255, 255, 255, 0.8);
+border-radius:15px;}
+
+input, select{width: 30%;
+margin:15px auto;
+padding:10px;
+display:block;
+border:solid orange 4px;
+border-radius:20px;}
+
+button{color:white;
+        min-width: 10%;
+        padding:8px;
+        border-radius: 5px;
+	cursor:pointer;
+	margin:20px;
+	border:none;}
+
+button:hover{font-weight:bold;
+transform:scale(1.2);}
+
+button:first-child{background-color: blue;}
+
+button:last-child{background-color: green;}
+
+th,td{border:0;
+border-spacing:0;
+
+}
+
+table{
+border:0;
+margin:0 auto;}
+
+#risultati-meteo{margin:2em auto;
+overflow:auto;
+font-size:1.5em;}
+
+#risultati-meteo > table{text-align:left;}
+
+#risultati-meteo table td {text-align:center;}
+#risultati-meteo table th,td{padding:5px;}
+
+#nuvola, #pioggia, #sole, #neve, #nebbia{width:15%;
+heigth:15%;
+border-radius:50%;
+margin:10px auto;
+border:solid orange 4px;}
+
+@media only screen and (max-width: 968px) {
+ input, select{width: 70%;}
+main{width:80%;}
+  }
