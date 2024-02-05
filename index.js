@@ -1,6 +1,7 @@
 
 document.addEventListener("DOMContentLoaded",()=> {
 
+
 nuvola.style.display = 'none';
 pioggia.style.display = 'none';
 neve.style.display = 'none';
@@ -52,7 +53,8 @@ inviaButton.addEventListener("click",()=> {
     //variabili input - endpoint
     let citySelected = city.value;
     let siglaNazione =nazioniSelect.value;
-    const previsioniMeteoEndpoint=`https://api.openweathermap.org/data/2.5/weather?q=${citySelected},${siglaNazione}&appid=3d8aa45f7271f6bcb67cba7a6b0896d7`;
+    const api_key =API_KEY;
+    const previsioniMeteoEndpoint=`https://api.openweathermap.org/data/2.5/weather?q=${citySelected},${siglaNazione}&appid=${api_key}`;
     const xhr1 = new XMLHttpRequest();
     
     xhr1.open("GET", previsioniMeteoEndpoint, true);
@@ -72,14 +74,14 @@ inviaButton.addEventListener("click",()=> {
             let datiMeteo = datiPrevisioni[dati];
           }
 
-            //variabili dati meteo
-            let str="";
-            let temperatura = datiPrevisioni.main.temp;
-            let minima = datiPrevisioni.main.temp_min;
-            let massima=datiPrevisioni.main.temp_max;
-            let conversione=273.15;
-            let vento =datiPrevisioni.wind.speed;
-            let umidità = datiPrevisioni.main.humidity;
+    //variabili dati meteo
+    let str="";
+    let temperatura = datiPrevisioni.main.temp;
+    let minima = datiPrevisioni.main.temp_min;
+    let massima=datiPrevisioni.main.temp_max;
+    let conversione=273.15;
+    let vento =datiPrevisioni.wind.speed;
+    let umidità = datiPrevisioni.main.humidity;
 	let precipitazioni=datiPrevisioni.weather[0].description;
 	let nuvola=document.getElementById('nuvola');
 	let pioggia=document.getElementById('pioggia');
@@ -121,12 +123,6 @@ neve.style.display = 'none';
 nuvola.style.display = 'none';}
 
 
-
-            // console.log(temperatura-273.15);
-            // console.log(minima-273.15);
-            // console.log(massima-273.15);
-
-
             str += `
             <h3>Risultati meteo di ${citySelected.toUpperCase()}</h3>
             <table>    
@@ -140,7 +136,7 @@ nuvola.style.display = 'none';}
                     <th>Temperatura massima:</th><td>${Math.round(massima-conversione)}°</td>
                 </tr>
 
-		<tr>
+		        <tr>
                     <th>Precipitazioni:</th><td>${precipitazioni}</td>
                 </tr>
                 <tr>
@@ -191,10 +187,10 @@ xhr.send();
     nazioniSelect.selectedIndex = 0;
     	
 	nuvola.style.display = 'none';
-pioggia.style.display = 'none';
-neve.style.display = 'none';
-sole.style.display = 'none';
-nebbia.style.display = 'none';
+    pioggia.style.display = 'none';
+    neve.style.display = 'none';
+    sole.style.display = 'none';
+    nebbia.style.display = 'none';
 
     });
     
